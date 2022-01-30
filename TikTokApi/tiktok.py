@@ -531,7 +531,9 @@ class TikTokApi:
         * count: The number of users to return
             Note: maximum is around 28 for this type of endpoint.
         """
-        return self.discover_type(search_term, prefix="user", count=count, **kwargs)
+        return self.
+    
+    (search_term, prefix="user", count=count, **kwargs)
 
     def search_for_music(self, search_term, count=28, **kwargs) -> list:
         """Returns a list of music that match the search_term
@@ -582,7 +584,7 @@ class TikTokApi:
         response = []
         while len(response) < count:
             query = {
-                "discoverType": 0,
+                "discoverType": 1,
                 "needItemList": False,
                 "keyWord": search_term,
                 "offset": offset,
