@@ -533,8 +533,6 @@ class TikTokApi:
         """
         return self.discover_type(search_term, prefix="user", count=count, **kwargs)
     
-    (search_term, prefix="user", count=count, **kwargs)
-
     def search_for_music(self, search_term, count=28, **kwargs) -> list:
         """Returns a list of music that match the search_term
 
