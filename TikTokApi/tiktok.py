@@ -531,7 +531,7 @@ class TikTokApi:
         * count: The number of users to return
             Note: maximum is around 28 for this type of endpoint.
         """
-        return self.
+        return self.discover_type(search_term, prefix="user", count=count, **kwargs)
     
     (search_term, prefix="user", count=count, **kwargs)
 
