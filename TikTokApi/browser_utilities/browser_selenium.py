@@ -12,6 +12,8 @@ from selenium_stealth import stealth
 from selenium import webdriver
 from .get_acrawler import get_acrawler, get_tt_params_script
 from urllib.parse import splitquery, parse_qs, parse_qsl
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 
 class browser(BrowserInterface):
@@ -65,7 +67,7 @@ class browser(BrowserInterface):
 
         try:
             self.browser = webdriver.Chrome(
-                executable_path=self.executablePath, chrome_options=options
+                ChromeDriverManager().install()
             )
         except Exception as e:
             raise e
