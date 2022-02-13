@@ -532,7 +532,7 @@ class TikTokApi:
             Note: maximum is around 28 for this type of endpoint.
         """
         return self.discover_type(search_term, prefix="user", count=count, **kwargs)
-    
+
     def search_for_music(self, search_term, count=28, **kwargs) -> list:
         """Returns a list of music that match the search_term
 
@@ -1525,25 +1525,25 @@ class TikTokApi:
             "aid": 1988,
             "app_name": "tiktok_web",
             "device_platform": "web_mobile",
-            "region": self.region or "US",
+            "region": getattr(self, "region", "US"),
             "priority_region": "",
             "os": "ios",
             "referer": "",
             "root_referer": "",
             "cookie_enabled": "true",
-            "screen_width": self.width,
-            "screen_height": self.height,
-            "browser_language": self.browser_language.lower() or "en-us",
+            "screen_width": getattr(self, "width", "1920"),
+            "screen_height": getattr(self, "height", "1080"),
+            "browser_language": getattr(self, "browser_language", "en-us").lower(),
             "browser_platform": "iPhone",
             "browser_name": "Mozilla",
             "browser_version": self.__format_new_params__(self.userAgent),
             "browser_online": "true",
-            "timezone_name": self.timezone_name or "America/Chicago",
+            "timezone_name": getattr(self, "timezone_name", "America/New York"),
             "is_page_visible": "true",
             "focus_state": "true",
             "is_fullscreen": "false",
             "history_len": random.randint(0, 30),
-            "language": self.language or "en",
+            "language": getattr(self, "language", "en"),
         }
         return urlencode(query)
 
