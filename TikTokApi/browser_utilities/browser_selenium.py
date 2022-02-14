@@ -14,6 +14,7 @@ from selenium.webdriver.chrome.service import Service
 from .get_acrawler import get_acrawler, get_tt_params_script
 from urllib.parse import splitquery, parse_qs, parse_qsl
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
 
 
 class browser(BrowserInterface):
@@ -66,7 +67,7 @@ class browser(BrowserInterface):
             self.options["executablePath"] = self.executablePath
 
         try:
-            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
         except Exception as e:
             raise e
 
