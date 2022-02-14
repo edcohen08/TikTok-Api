@@ -66,7 +66,7 @@ class browser(BrowserInterface):
             self.options["executablePath"] = self.executablePath
 
         try:
-            self.browser = webdriver.Chrome(service=ChromeDriverManager().install())
+            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         except Exception as e:
             raise e
 
