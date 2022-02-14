@@ -10,10 +10,10 @@ import json
 from .browser_interface import BrowserInterface
 from selenium_stealth import stealth
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from .get_acrawler import get_acrawler, get_tt_params_script
 from urllib.parse import splitquery, parse_qs, parse_qsl
 from webdriver_manager.chrome import ChromeDriverManager
-
 
 
 class browser(BrowserInterface):
@@ -66,9 +66,7 @@ class browser(BrowserInterface):
             self.options["executablePath"] = self.executablePath
 
         try:
-            self.browser = webdriver.Chrome(
-                ChromeDriverManager().install()
-            )
+            self.browser = webdriver.Chrome(service=ChromeDriverManager().install())
         except Exception as e:
             raise e
 
